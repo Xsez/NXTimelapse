@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="driveMotors">
+        <item name="1">A</item>
+        <item name="2">B</item>
+        <item name="3">C</item>
+        <item name="4">A + B</item>
+        <item name="5">A + C</item>
+        <item name="6">B + C</item>
+    </string-array>
+    <string-array name="driveMotorsValues">
+        <item name="1">1</item>
+        <item name="2">2</item>
+        <item name="3">3</item>
+        <item name="4">4</item>
+        <item name="5">5</item>
+        <item name="6">6</item>
+    </string-array>
+
+</resources>

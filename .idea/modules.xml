@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NXTimelapse.iml" filepath="$PROJECT_DIR$/NXTimelapse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NXTimelapseTest.iml" filepath="$PROJECT_DIR$/NXTimelapseTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
+

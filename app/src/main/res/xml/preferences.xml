@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Connection Settings">
+
+        <EditTextPreference
+            android:key="mac_address"
+            android:title="MAC Address"
+            android:summary="summary_edittext_preference"
+            android:dialogTitle="dialog_title_edittext_preference" />
+
+        <CheckBoxPreference
+            android:key="auto_connect"
+            android:title="Auto Connect"
+            android:summary="summary_checkbox_preference"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Motor Settings">
+
+        <CheckBoxPreference
+            android:key="use_drive"
+            android:title="Use Drive"
+            android:summary="summary_checkbox_preference" />
+
+        <CheckBoxPreference
+            android:key="use_camera"
+            android:title="Use Camera"
+            android:summary="summary_checkbox_preference" />
+
+        <ListPreference
+            android:key="drive_motor"
+            android:title="Drive Motor(s)"
+            android:summary="summary"
+            android:entries= "@array/driveMotors"
+            android:entryValues= "@array/driveMotorsValues"
+            android:dialogTitle="dialog titel" />
+
+        <EditTextPreference
+            android:key="edittext_preference"
+            android:title="title_edittext_preference"
+            android:summary="summary_edittext_preference"
+            android:dialogTitle="dialog_title_edittext_preference" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

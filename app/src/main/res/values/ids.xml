@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="editTextStep2Time" type="id"/>
+    <item name="editTextStep3Time" type="id"/>
+    <item name="editTextStep4Time" type="id"/>
+    <item name="editTextStep5Time" type="id"/>
+    <item name="editTextStep6Time" type="id"/>
+    <item name="editTextStep7Time" type="id"/>
+    <item name="editTextStep8Time" type="id"/>
+    <item name="editTextStep9Time" type="id"/>
+    <item name="editTextStep10Time" type="id"/>
+    <item name="editTextStep11Time" type="id"/>
+    <item name="editTextStep12Time" type="id"/>
+    <item name="editTextStep13Time" type="id"/>
+    <item name="editTextStep14Time" type="id"/>
+    <item name="editTextStep15Time" type="id"/>
+    <item name="editTextStep16Time" type="id"/>
+    <item name="editTextStep17Time" type="id"/>
+    <item name="editTextStep18Time" type="id"/>
+    <item name="editTextStep19Time" type="id"/>
+    <item name="editTextStep20Time" type="id"/>
+
+    <item name="editTextStep2DriveTacho" type="id"/>
+    <item name="editTextStep3DriveTacho" type="id"/>
+    <item name="editTextStep4DriveTacho" type="id"/>
+    <item name="editTextStep5DriveTacho" type="id"/>
+    <item name="editTextStep6DriveTacho" type="id"/>
+    <item name="editTextStep7DriveTacho" type="id"/>
+    <item name="editTextStep8DriveTacho" type="id"/>
+    <item name="editTextStep9DriveTacho" type="id"/>
+    <item name="editTextStep10DriveTacho" type="id"/>
+    <item name="editTextStep11DriveTacho" type="id"/>
+    <item name="editTextStep12DriveTacho" type="id"/>
+    <item name="editTextStep13DriveTacho" type="id"/>
+    <item name="editTextStep14DriveTacho" type="id"/>
+    <item name="editTextStep15DriveTacho" type="id"/>
+    <item name="editTextStep16DriveTacho" type="id"/>
+    <item name="editTextStep17DriveTacho" type="id"/>
+    <item name="editTextStep18DriveTacho" type="id"/>
+    <item name="editTextStep19DriveTacho" type="id"/>
+    <item name="editTextStep20DriveTacho" type="id"/>
+
+    <item name="editTextStep2CameraTacho" type="id"/>
+    <item name="editTextStep3CameraTacho" type="id"/>
+    <item name="editTextStep4CameraTacho" type="id"/>
+    <item name="editTextStep5CameraTacho" type="id"/>
+    <item name="editTextStep6CameraTacho" type="id"/>
+    <item name="editTextStep7CameraTacho" type="id"/>
+    <item name="editTextStep8CameraTacho" type="id"/>
+    <item name="editTextStep9CameraTacho" type="id"/>
+    <item name="editTextStep10CameraTacho" type="id"/>
+    <item name="editTextStep11CameraTacho" type="id"/>
+    <item name="editTextStep12CameraTacho" type="id"/>
+    <item name="editTextStep13CameraTacho" type="id"/>
+    <item name="editTextStep14CameraTacho" type="id"/>
+    <item name="editTextStep15CameraTacho" type="id"/>
+    <item name="editTextStep16CameraTacho" type="id"/>
+    <item name="editTextStep17CameraTacho" type="id"/>
+    <item name="editTextStep18CameraTacho" type="id"/>
+    <item name="editTextStep19CameraTacho" type="id"/>
+    <item name="editTextStep20CameraTacho" type="id"/>
+
+    <item name="spinnerStep2Time" type="id"/>
+    <item name="spinnerStep3Time" type="id"/>
+    <item name="spinnerStep4Time" type="id"/>
+    <item name="spinnerStep5Time" type="id"/>
+    <item name="spinnerStep6Time" type="id"/>
+    <item name="spinnerStep7Time" type="id"/>
+    <item name="spinnerStep8Time" type="id"/>
+    <item name="spinnerStep9Time" type="id"/>
+    <item name="spinnerStep10Time" type="id"/>
+    <item name="spinnerStep11Time" type="id"/>
+    <item name="spinnerStep12Time" type="id"/>
+    <item name="spinnerStep13Time" type="id"/>
+    <item name="spinnerStep14Time" type="id"/>
+    <item name="spinnerStep15Time" type="id"/>
+    <item name="spinnerStep16Time" type="id"/>
+    <item name="spinnerStep17Time" type="id"/>
+    <item name="spinnerStep18Time" type="id"/>
+    <item name="spinnerStep19Time" type="id"/>
+    <item name="spinnerStep20Time" type="id"/>
+
+
+</resources>
