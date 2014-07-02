@@ -39,17 +39,23 @@ public class MyActivity extends Activity {
     int driveSpeed = 0;
     int cameraSpeed = 0;
 
+    double totalRunTime=0;
+    double totalDriveSteps=0;
+    double totalCameraSteps=0;
+
+    double timeStarted = 0;
+
 
     boolean connected = false;
-    boolean stepRunning = false;
+    boolean taskRunning = false;
     int steps = 1;
     int currentStep = 0;
     int stepDriveStep = 0;
     int driveCurrentTacho = 0;
     int cameraCurrentTacho = 0;
     int stepDriveCurrentStep = 0;
-
-    int taskData[][] = new int[20][4];
+    //DATA ARRAY (1. Column [0]: ; 2. Column [1]: ; 3. Column [2]: ; 4. Column [3]: ; 5. Column [4]: ; 6. Column [5]: driveTachoDiffAbs; 7. Column [6]: cameraTachoDiffAbs)
+    int taskData[][] = new int[20][7];
     float battery = 0;
 
 
@@ -65,13 +71,29 @@ public class MyActivity extends Activity {
             EditText etStep1Time = (EditText)findViewById(R.id.editTextStep1Time);
             ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
             float progress;
-            progress = ((float)driveCurrentTacho / (float)Integer.parseInt(etStep1Tacho.getText().toString())*100);
-            progressBar.setProgress((int)(progress));
-            tvTimeLeft.setText("0" + "/" + etStep1Time.getText().toString());
-            tvCurrentStep.setText(Integer.toString(currentStep) + "/" + Integer.toString(steps));
-            tvDriveTacho.setText(Integer.toString(driveCurrentTacho) + "/" + etStep1Tacho.getText().toString());
-            tvCameraTacho.setText(Integer.toString(cameraCurrentTacho));
-            tvBattery.setText(Float.toString(battery));
+            double time;
+            time = System.currentTimeMillis()-timeStarted;
+
+            if (taskRunning==true) {
+                progress = (((float)time / (float)totalRunTime) *100);
+                progressBar.setProgress((int)(progress));
+
+                tvTimeLeft.setText(Double.toString((time)/1000) + "/" + Double.toString(totalRunTime/1000));
+                tvCurrentStep.setText(Integer.toString(currentStep) + "/" + Integer.toString(steps));
+                tvDriveTacho.setText(Integer.toString(driveCurrentTacho) + "/" + Double.toString(totalDriveSteps));
+                tvCameraTacho.setText(Integer.toString(cameraCurrentTacho));
+                tvBattery.setText(Double.toString(roundDown2((double)battery)));
+            } else {
+                progress = 0;
+                progressBar.setProgress((int)(progress));
+
+                tvTimeLeft.setText("");
+                tvCurrentStep.setText("");
+                tvDriveTacho.setText("");
+                tvCameraTacho.setText(Integer.toString(cameraCurrentTacho));
+                tvBattery.setText(Double.toString(roundDown2((double)battery)));
+            }
+
 
         }
     };
@@ -385,6 +407,9 @@ public class MyActivity extends Activity {
     public void readTextBoxes () {
         int lastDriveTacho = 0;
         int lastCameraTacho = 0;
+        totalRunTime = 0;
+        totalCameraSteps = 0;
+        totalDriveSteps = 0;
         for (int i = 0; i < steps; i++) {
             Resources res = getResources();
             String name = getPackageName();
@@ -405,6 +430,8 @@ public class MyActivity extends Activity {
             int time = 0;
             int driveTacho = 0;
             int cameraTacho = 0;
+            int driveTachoDiffAbs = 0;
+            int cameraTachoDiffAbs = 0;
 
             time = Integer.parseInt(etStepTime.getText().toString()) * 1000;
             if (spinner.getSelectedItemId() == 1) {
@@ -414,26 +441,34 @@ public class MyActivity extends Activity {
             }
 
             driveTacho = Integer.parseInt(etStepDriveTacho.getText().toString());
-            if (driveTacho == 0) {
-                driveDelay = 0;
+            driveTachoDiffAbs = Math.abs(driveTacho - lastDriveTacho);
+            if (driveTachoDiffAbs == 0) {
+                driveDelay = time;
             } else {
-                driveDelay = time / Math.abs(driveTacho - lastDriveTacho) ;
+                driveDelay = time / driveTachoDiffAbs ;
             }
 
             cameraTacho = Integer.parseInt(etStepCameraTacho.getText().toString());
-            if (cameraTacho == 0) {
-                cameraDelay = 0;
+            cameraTachoDiffAbs = Math.abs(cameraTacho - lastCameraTacho);
+            if (cameraTachoDiffAbs == 0) {
+                cameraDelay = time;
             } else {
-                cameraDelay = time / Math.abs(cameraTacho - lastCameraTacho) ;
+                cameraDelay = time / cameraTachoDiffAbs ;
             }
-
-            lastDriveTacho = driveTacho;
-            lastCameraTacho = cameraTacho;
 
             taskData[i][0]= driveTacho;
             taskData[i][1]= driveDelay;
             taskData[i][2]= cameraTacho;
             taskData[i][3]= cameraDelay;
+            taskData[i][4] = time;
+            taskData[i][5] = driveTachoDiffAbs;
+            taskData[i][6] = cameraTachoDiffAbs;
+            totalRunTime += time;
+            totalDriveSteps += driveTachoDiffAbs;
+            totalCameraSteps += cameraTachoDiffAbs;
+
+            lastDriveTacho = driveTacho;
+            lastCameraTacho = cameraTacho;
 
         }
     }
@@ -603,6 +638,8 @@ public class MyActivity extends Activity {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        timeStarted = System.currentTimeMillis();
+        taskRunning = true;
     }
 
     public boolean getStepStatus() {
@@ -778,6 +815,13 @@ public class MyActivity extends Activity {
             e.printStackTrace();
         }
         return success;
+    }
+
+
+
+
+    public static double roundDown2(double d) {
+        return (long) (d * 1e2) / 1e2;
     }
 
     //Timed Thread
